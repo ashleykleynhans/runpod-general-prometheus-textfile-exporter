@@ -1,3 +1,3 @@
 ---
-textfile_path: .
+textfile_path: /etc/prometheus/node_exporter_textfiles
 api_key: YOUR_RUNPOD_API_KEY
