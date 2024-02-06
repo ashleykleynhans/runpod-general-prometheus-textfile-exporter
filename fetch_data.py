@@ -218,12 +218,23 @@ def fetch_data(config):
 
 
 def write_data(data):
-    filename = 'runpod_endpoints.prom'
+    filename = 'runpod.prom'
     output_file = os.path.join(config['textfile_path'], filename)
     tmp_output_file = f'{output_file}.$$'
 
     f = open(tmp_output_file, 'a')
-    f.write('current_spend_per_hour{id="' + data['id'] + '"} ' + str(data['currentSpendPerHr']) + '\n')
+    f.write('current_spend_per_hour ' + str(data['currentSpendPerHr']) + '\n')
+    f.write('referral_earned ' + str(data['referralEarned']) + '\n')
+    f.write('template_earned ' + str(data['templateEarned']) + '\n')
+    f.write('client_balance ' + str(data['clientBalance']) + '\n')
+    f.write('host_balance ' + str(data['hostBalance']) + '\n')
+    f.write('total_referrals ' + str(data['referral']['currentMonth']['totalReferrals']) + '\n')
+    f.write('referral_spend ' + str(data['referral']['currentMonth']['totalSpend']) + '\n')
+    f.write('num_pods ' + str(len(data['pods'])) + '\n')
+    f.write('num_endpoints ' + str(len(data['endpoints'])) + '\n')
+    f.write('num_network_volumes ' + str(len(data['networkVolumes'])) + '\n')
+    f.write('num_savings_plans ' + str(len(data['savingsPlans'])) + '\n')
+    f.write('max_serverless_workers ' + str(data['maxServerlessConcurrency']) + '\n')
     f.close()
 
     os.rename(tmp_output_file, output_file)
@@ -233,5 +244,4 @@ if __name__ == '__main__':
     script_path = os.path.dirname(__file__)
     config = load_config(script_path)
     data = fetch_data(config)
-    print(json.dumps(data, indent=4, default=str))
-    # write_data(data)
+    write_data(data)
