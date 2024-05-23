@@ -145,9 +145,6 @@ def fetch_data(config):
                             volumeInGb
                             memoryInGb
                             vcpuCount
-                            runtime {
-                                uptimeInSeconds
-                            }
                             machine {
                                 podHostId
                             }
