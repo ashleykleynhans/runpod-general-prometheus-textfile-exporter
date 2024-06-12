@@ -37,3 +37,12 @@ cp config.yml.example config.yml
 ### Run the script via a cron job to generate the files
 
 Create a cron job that runs the script `runpod_exporter_cron.sh` at your preferred interval.
+
+## Community and Contributing
+
+Pull requests and issues on [GitHub](https://github.com/ashleykleynhans/runpod-general-prometheus-textfile-exporter)
+are welcome. Bug fixes and new features are encouraged.
+
+## Appreciate my work?
+
+<a href="https://www.buymeacoffee.com/ashleyk" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
